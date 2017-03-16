@@ -5,6 +5,7 @@ use yii\widgets\ActiveForm;
 use yii\helpers\ArrayHelper;
 use app\models\FrecuenciasOpciones;
 use app\models\Acuerdos;
+use app\models\Clasificacion;
 
 /* @var $this yii\web\View */
 /* @var $model app\models\Sometido */
@@ -12,104 +13,157 @@ use app\models\Acuerdos;
 ?>
 
 <div class="container">
-  <h2>Basic List Group</h2>
-    <div class="col-sm-8">
-        <ul class="list-group">
-            <li class="list-group-item"><label>Indique la frecuencia con la cual solicita servicio a OPEI</label> <?= Html::activeDropDownList($model, 'frecuencia',
-                                                                                                              ArrayHelper::map(FrecuenciasOpciones::find()->all(), 'id', 'options')) ?></li>
-            <li class="list-group-item"><label>El tiempo de procesar su solicitud fue razonable</label> <?= Html::activeDropDownList($model, 'respuesta_1',
-                                                                                                            ArrayHelper::map(Acuerdos::find()->all(), 'id', 'options')) ?></li>
-            <li class="list-group-item">Third item</li>
-        </ul>
-    </div>
-</div>
-
-
-<div class="container">
-
     <?php $form = ActiveForm::begin(); ?>
- 
-        <br><br>
         <div class="row">
-            <div class="col-sm-6">
-                
-            </div>
-            <div class="col-sm-6">
-                
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6">
-            
-            </div>
-            <div class="col-sm-6">
-            
-            </div>
+                <div class="col-sm-8">
+                    <h4><label>Indique la frecuencia con la cual solicita servicio a OPEI:</label></h4>
+                        <div style = "padding-left: 3%">
+                            <?= $form->field($model, 'frecuencia')->radio(['label' => 'Por primera vez', 'value' => FrecuenciasOpciones::POR_PRIMERA_VEZ])?>
+                            <?= $form->field($model, 'frecuencia')->radio(['label' => 'Una vez al semestre', 'value' => FrecuenciasOpciones::UNA_VEZ_AL_SEMESTRE])?>
+                            <?= $form->field($model, 'frecuencia')->radio(['label' => 'Varias veces al semestre', 'value' => FrecuenciasOpciones::VARIAS_VECES_AL_SEMESTRE])?>
+                            <?= $form->field($model, 'frecuencia')->radio(['label' => 'Por primera vez', 'value' => FrecuenciasOpciones::ANUALMENTE])?>
+                        </div>
+                </div>
         </div>
         <div class="row">
-            <div class="col-sm-6">
-            
-            </div>
-            <div class="col-sm-6">
-            
+            <div class="col-sm-9"> 
+                <br>
+                <h4><label>Indique cuán de acuerdo está con las siguientes premisas:</label></h4>
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-success">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                
+                            </div>
+                            <div class="col-sm-2">
+                                Totalmente de acuerdo
+                            </div>
+                            <div class="col-sm-2">
+                                De acuerdo
+                            </div>
+                            <div class="col-sm-2">
+                                En desacuerdo
+                            </div>
+                            <div class="col-sm-2">
+                                Totalmente en desacuerdo
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item list-group-item-success">
+                        <div class="row">
+                            <div class="col-sm-4">
+                                1. El tiempo de procesar su solicitud fue razonable
+                            </div>
+                            <div class="col-sm-2">
+                                <?= $form->field($model, 'respuesta_1')->radio(['label' => '', 'value' => FrecuenciasOpciones::POR_PRIMERA_VEZ])?>
+                            </div>
+                            <div class="col-sm-2">
+                                <?= $form->field($model, 'respuesta_1')->radio(['label' => '', 'value' => FrecuenciasOpciones::UNA_VEZ_AL_SEMESTRE])?>
+                            </div>
+                            <div class="col-sm-2">
+                                <?= $form->field($model, 'respuesta_1')->radio(['label' => '', 'value' => FrecuenciasOpciones::VARIAS_VECES_AL_SEMESTRE])?>
+                            </div>
+                            <div class="col-sm-2">
+                                <?= $form->field($model, 'respuesta_1')->radio(['label' => '', 'value' => FrecuenciasOpciones::ANUALMENTE])?>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item list-group-item-success">
+                        <div class="row">
+                                <div class="col-sm-4">
+                                    2. La información provista fue de utilidad
+                                </div>
+                                <div class="col-sm-2">
+                                    <?= $form->field($model, 'respuesta_2')->radio(['label' => '', 'value' => FrecuenciasOpciones::POR_PRIMERA_VEZ])?>
+                                </div>
+                                <div class="col-sm-2">
+                                    <?= $form->field($model, 'respuesta_2')->radio(['label' => '', 'value' => FrecuenciasOpciones::UNA_VEZ_AL_SEMESTRE])?>
+                                </div>
+                                <div class="col-sm-2">
+                                    <?= $form->field($model, 'respuesta_2')->radio(['label' => '', 'value' => FrecuenciasOpciones::VARIAS_VECES_AL_SEMESTRE])?>
+                                </div>
+                                <div class="col-sm-2">
+                                    <?= $form->field($model, 'respuesta_2')->radio(['label' => '', 'value' => FrecuenciasOpciones::ANUALMENTE])?>
+                                </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item list-group-item-success">
+                        <div class="row">
+                                <div class="col-sm-4">
+                                    3. La atención brindad por el personal fue profesional
+                                </div>
+                                <div class="col-sm-2">
+                                    <?= $form->field($model, 'respuesta_3')->radio(['label' => '', 'value' => FrecuenciasOpciones::POR_PRIMERA_VEZ])?>
+                                </div>
+                                <div class="col-sm-2">
+                                    <?= $form->field($model, 'respuesta_3')->radio(['label' => '', 'value' => FrecuenciasOpciones::UNA_VEZ_AL_SEMESTRE])?>
+                                </div>
+                                <div class="col-sm-2">
+                                    <?= $form->field($model, 'respuesta_3')->radio(['label' => '', 'value' => FrecuenciasOpciones::VARIAS_VECES_AL_SEMESTRE])?>
+                                </div>
+                                <div class="col-sm-2">
+                                    <?= $form->field($model, 'respuesta_3')->radio(['label' => '', 'value' => FrecuenciasOpciones::ANUALMENTE])?>
+                                </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item list-group-item-success">
+                        <div class="row">
+                                <div class="col-sm-4">
+                                    4. El formato de la solicitud de servicio es amigable (user friendly)
+                                </div>
+                                <div class="col-sm-2">
+                                    <?= $form->field($model, 'respuesta_4')->radio(['label' => '', 'value' => FrecuenciasOpciones::POR_PRIMERA_VEZ])?>
+                                </div>
+                                <div class="col-sm-2">
+                                    <?= $form->field($model, 'respuesta_4')->radio(['label' => '', 'value' => FrecuenciasOpciones::UNA_VEZ_AL_SEMESTRE])?>
+                                </div>
+                                <div class="col-sm-2">
+                                    <?= $form->field($model, 'respuesta_4')->radio(['label' => '', 'value' => FrecuenciasOpciones::VARIAS_VECES_AL_SEMESTRE])?>
+                                </div>
+                                <div class="col-sm-2">
+                                    <?= $form->field($model, 'respuesta_4')->radio(['label' => '', 'value' => FrecuenciasOpciones::ANUALMENTE])?>
+                                </div>
+                        </div>
+                    </li>
+                    <li class="list-group-item list-group-item-success">
+                        <div class="row">
+                                <div class="col-sm-4">
+                                    5. En general, estoy satisfecho(a) con el servicio brindado por OPEI
+                                </div>
+                                <div class="col-sm-2">
+                                    <?= $form->field($model, 'respuesta_5')->radio(['label' => '', 'value' => FrecuenciasOpciones::POR_PRIMERA_VEZ])?>
+                                </div>
+                                <div class="col-sm-2">
+                                    <?= $form->field($model, 'respuesta_5')->radio(['label' => '', 'value' => FrecuenciasOpciones::UNA_VEZ_AL_SEMESTRE])?>
+                                </div>
+                                <div class="col-sm-2">
+                                    <?= $form->field($model, 'respuesta_5')->radio(['label' => '', 'value' => FrecuenciasOpciones::VARIAS_VECES_AL_SEMESTRE])?>
+                                </div>
+                                <div class="col-sm-2">
+                                    <?= $form->field($model, 'respuesta_5')->radio(['label' => '', 'value' => FrecuenciasOpciones::ANUALMENTE])?>
+                                </div>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-6">
-            
-            </div>
-            <div class="col-sm-6">
-            
-            </div>
+                <div class="col-sm-8">
+                    <h4><label>Clasificación de la persona que solicita el servicio:</label></h4>
+                        <div style = "padding-left: 3%">
+                            <?= $form->field($model, 'clasificacion')->radio(['label' => 'Personal docente', 'value' => FrecuenciasOpciones::POR_PRIMERA_VEZ])?>
+                            <?= $form->field($model, 'clasificacion')->radio(['label' => 'Personal no docente', 'value' => FrecuenciasOpciones::UNA_VEZ_AL_SEMESTRE])?>
+                            <?= $form->field($model, 'clasificacion')->radio(['label' => 'Estudiante', 'value' => FrecuenciasOpciones::VARIAS_VECES_AL_SEMESTRE])?>
+                            <?= $form->field($model, 'clasificacion')->radio(['label' => 'Otro', 'value' => FrecuenciasOpciones::ANUALMENTE])?>
+                        </div>
+                </div>
         </div>
         <div class="row">
-            <div class="col-sm-6">
-            
-            </div>
-            <div class="col-sm-6">
-            
+            <div class="col-sm-5">
+                <h4><label>Sugerencias y recomendaciones:</label></h4>
+                <?= $form->field($model, 'sugerencias_recomendaciones')->textarea(['rows' => 6])->label(false) ?>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-6">
-            
-            </div>
-            <div class="col-sm-6">
-            
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6">
-            
-            </div>
-            <div class="col-sm-6">
-            
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-sm-6">
-            
-            </div>
-            <div class="col-sm-6">
-            
-            </div>
-        </div>
-
-    <?= $form->field($model, 'respuesta_2')->textInput()->label('La información provista fue de utilidad') ?>
-
-    <?= $form->field($model, 'respuesta_3')->textInput()->label('La atencion brindad por el personal de OPEI fue profesional') ?>
-
-    <?= $form->field($model, 'respuesta_4')->textInput()->label('El formato de la solicitud de servicio es amigable (user friendly)') ?>
-
-    <?= $form->field($model, 'respuesta_5')->textInput()->label('En general, estoy satisfecho(a) con el servicio brindado por OPEI') ?>
-
-    <?= $form->field($model, 'clasificacion')->textInput(['maxlength' => true]) ?>
-
-    <div class="row">
-        <div class="col-sm-5">
-            <?= $form->field($model, 'sugerencias_recomendaciones')->textarea(['rows' => 6]) ?>
-        </div>
-    </div>
     
     
 
@@ -118,5 +172,4 @@ use app\models\Acuerdos;
     </div>
 
     <?php ActiveForm::end(); ?>
-
 </div>
